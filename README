@@ -17,5 +17,5 @@ run
 	mojito start 
 		or
 	mojito start --context "environment:dev"
-check your http://localhost:8001/
+check your application running at http://localhost:8001/
 
