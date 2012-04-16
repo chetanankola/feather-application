@@ -1,0 +1,19 @@
+Install mojito first as:
+$ git clone git://github.com/yahoo/mojito.git
+$ cd mojito/source
+$ npm install -g .
+$ npm install .
+
+or check the http://github.com/yahoo/mojito for more details on installation
+
+and then copy this folder into the source directory of mojito
+
+
+Steps:
+
+1.enter the root dir[outermost] of the scaffold folder
+2. run 
+	mojito start 
+		or
+	mojito start --context "environment:dev"
+3. check your http://localhost:8001/
