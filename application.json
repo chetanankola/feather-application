@@ -1,0 +1,69 @@
+[
+    {
+        "settings": [ "master" ],
+        "log": {
+          "client": {
+            "level": "warn",
+            "yui": true
+          },
+          "server": { 
+            "level": "debug",
+            "yui": true
+          } 
+        },
+
+        "appPort": 8001,
+        "staticHandling": {
+            "appName": "scaffold"
+        },
+        "specs": {
+            "main" : {
+                  "type": "HTMLFrameMojit",
+                  "config": {
+                    "title": "main",
+                    "deploy": true,
+                    "child": {
+                        "type" : "main",
+                        "config" : {
+                            "children" : {
+                                "checkin": {
+                                    "base" : "checkin"
+                                },
+                                "login": {
+                                    "base" : "login"
+                                },
+                                "weather": {
+                                    "base" : "weather"
+                                }
+                            }
+                        }
+                    },
+                    "assets": {
+                        "top": {
+                            "css":[
+                                "http://yui.yahooapis.com/3.4.1/build/cssfonts/fonts-min.css",
+                                "http://yui.yahooapis.com/3.4.1/build/cssreset/reset-min.css",
+                                "/static/scaffold/assets/core.css"
+                            ]
+                        }
+                    }
+                }
+            },
+            "checkin": {
+                "type" : "checkin"
+            },
+            "facebook": {
+                "type" : "facebook"
+            },
+            "login": {
+                "type" : "login"
+            },
+            "Notepad": {
+                "type" : "Notepad"
+            },
+            "weather": {
+                "type" : "weather"
+            }             
+        }
+    }
+]
