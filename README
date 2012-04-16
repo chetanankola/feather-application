@@ -6,14 +6,16 @@ $ npm install .
 
 or check the http://github.com/yahoo/mojito for more details on installation
 
-and then copy this folder into the source directory of mojito
+enter mojito/source dir (cd ~/mojito/source)
+and do: git clone git://github.com/chetanankola/feather-application.git
 
+this will create a dir called feather-application with all the source files.
 
-Steps:
+cd feather-application
 
-1.enter the root dir[outermost] of the scaffold folder
-2. run 
+run 
 	mojito start 
 		or
 	mojito start --context "environment:dev"
-3. check your http://localhost:8001/
+check your http://localhost:8001/
+
