@@ -1,0 +1,23 @@
+<div id="weatherresults">
+		{{#result}}
+			{{#link}}
+				{{#channel}}
+				<p>
+					{{#location}}
+						{{city}}, {{region}}, {{country}}, {{zipcode}}
+					{{/location}}		
+				</p>
+					{{#item}}
+						{{#condition}}
+							<p>Today: {{temp}} F</p>
+						{{/condition}}
+
+						{{#forecast}} 
+							<p>{{date}} :{{text}}</p> 
+						{{/forecast}}
+					{{/item}}
+				{{/channel}}	
+			{{/link}}
+		{{/result}}	
+
+</div>

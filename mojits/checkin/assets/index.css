@@ -1,0 +1,27 @@
+/*scroll view related*/
+#bookmarked-friends-scrollable-container	{white-space:nowrap; background:#ccc;background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#d8d8d8));} 
+#bookmarked-friends-scrollable-container ul {background:#fff;/*width:inherit;*/margin:0; padding:0;-webkit-box-shadow: 0px 0px 10px #000;}
+#bookmarked-friends-scrollable-container li {position: relative; display: inline-block;  height: inherit;}
+
+
+.panel {margin: 5px;margin-top:10px;-webkit-box-shadow: 0px 0px 5px 1px #ccc; padding: 5px; -webkit-border-radius: 5px;  position: relative; background: #FFF;}
+#checkin-container{ -webkit-border-radius:5px;background:#fefefe;position:relative;min-height:30px;margin:5px;-webkit-box-shadow: 0px 0px 15px 1px #ccc;margin-top:10px;}
+
+header{-webkit-border-radius:0px;position:relative;margin:0px;font-size:1.2em;padding:8px; text-shadow: 0px 1px 0 white;color: #444;background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ededed)); }
+/*captions and image box of the scrollview for facebook images*/
+.image{padding:2px;text-align:center;background: -webkit-gradient(linear, left top, left bottom, from(#FEFEFE), to(#E8E8E8));}
+.location { font-size:1.0em; }
+.caption{overflow:auto;font-size:0.7em;color:#000;text-shadow: 0px 1px 0 white;}
+
+/*Login url style in case of no access_token*/
+.login-ul {display: -webkit-box; -webkit-box-orient: horizontal; margin: 5px 0;}
+.login-ul li {-webkit-box-flex: 1; margin-right: 10px;}
+.login-ul li:last-child {margin: 0;}
+.login-ul li a {display: block;}
+.login-ul li a:active{background: -webkit-gradient(linear, left top, left bottom, from(#E8E8E8), to(#FEFEFE));}
+.login-link {text-align: center;padding: 3px 0;border-radius: 5px;background: -webkit-gradient(linear, left top, left bottom, from(#FEFEFE), to(#E8E8E8));color: black;-webkit-box-shadow: 0px 0px 4px; padding:5px;}
+
+.splash {text-align: center; border-radius: 5px; margin: 5px; position: relative; background: #fff;
+					 box-shadow: 0px 0px 5px 1px #ccc;}
+.splash h2 {font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size: 12px;font-weight: bold;color:red;padding:3px;}
+.splash a {font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size: 12px;font-weight: bold;color:#999;padding:3px;}

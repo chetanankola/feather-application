@@ -1,0 +1,15 @@
+[{
+    "settings": ["master"],
+    "config": {
+		"_SHOW_ALL_FRIENDS":false
+    }
+},
+
+
+{
+    "settings": ["environment:dev"],
+    "config": {
+    	"_SHOW_ALL_FRIENDS":false
+
+    }
+}]

@@ -1,0 +1,40 @@
+[{
+    "settings": ["master"],
+    "config": {
+        "uri": "http://lab01.carbon.sp2.yahoo.com:4080/v1/eventdetails;slug=",
+        "params": {
+            "propertyId": "local",
+            "format": "json"
+        },
+		"Appdomain":"http://user-murphys.trunk.development.manhattan.bf1.yahoo.com",
+        "Appid":"189991501103342",
+        "Appsecret":"d9f6476a976aae53409a164bcbe8fae0"
+    }
+},
+
+{
+    "settings": ["environment:test"],
+    "config": {
+        "uri": "http://lab01.carbon.sp2.yahoo.com:4080/v1/eventdetails;slug=",
+        "params": {
+            "propertyId": "local",
+            "format": "json"
+        },
+        "Appdomain":"http://dev.local.yahoo.com:8666",
+        "Appid":"282149431853618",
+        "Appsecret":"cc6992d8bee3265cf5547bc7a3d0719a"
+    }    
+},
+{
+    "settings": ["environment:dev"],
+    "config": {
+        "uri": "http://lab01.carbon.sp2.yahoo.com:4080/v1/eventdetails;slug=",
+        "params": {
+            "propertyId": "local",
+            "format": "json"
+        },
+        "Appdomain":"http://thirdlarge.corp.yahoo.com:8666",
+        "Appid":"312817175438996",
+        "Appsecret":"c68cb5d20285c1f3ac61946ddff4096a"
+    }
+}]

@@ -1,0 +1,158 @@
+<html>
+  <head>
+    <style type="text/css">
+    h1,h2 { 
+
+         -webkit-border-radius: 10px;
+         -moz-border-radius: 10px;
+         border-radius: 10px;         
+         padding: 10px 0px; 
+         text-align: left;
+         font-weight: bold;
+         font-size:2.0em;
+        
+       }
+.mojit {
+   margin-left:10px;
+   margin-right:40px;
+   margin-top:10px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;   
+   background: -moz-linear-gradient(top, #fefefe, #d8d8d8);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#d8d8d8));	
+	-moz-box-shadow: 1px 1px 3px #292929;
+	-webkit-box-shadow: 1px 1px 3px #292929;
+	box-shadow: 1px 1px 3px #292929;
+	width:97%;
+	padding:10px;
+	border-top-color:#fff;
+	border-bottom-color:#777;
+}
+
+ul.search_ul_class{
+    margin: 0 auto;
+    padding: 0px;
+
+    
+}
+ul.search_ul_class li{
+	text-align: left;
+    float: left;
+    list-style: none;
+    margin-left:5px;
+} 
+
+.search_ul_class {
+	background-color:#fff; 
+}
+.search_box_class {
+	margin:0px;
+	width:200px;
+	border-radius:3px;
+	height:40px;
+}
+.search_button{
+
+	-moz-box-shadow: 0px 1px 2px #292929;
+	-webkit-box-shadow: 0px 1px 2px #292929;
+	box-shadow: 0px 1px 2px #292929;
+	background: -moz-linear-gradient(top, #aeaeae, #d8d8d8);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#d8d8d8));
+	border: 1px solid #ACACAC;
+	border-top-color: #BDBDBD;
+	border-bottom-color: #949494;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+
+	width:inherit;
+	font-weight: bold;
+    font-size:2.0em;
+	padding-left:2px;
+	padding-right:2px;
+	padding-top:3px;
+	padding-bottom:3px;
+	text-shadow: 0px 1px 0 white;
+	transition: all .1s ease-in-out;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+	cursor: pointer;
+	border-image: initial;
+}
+.search_button:hover {
+	cursor:pointer;
+	-moz-box-shadow: 0px 1px 1px #292929;
+	-webkit-box-shadow: 0px 1px 1px #292929;
+	box-shadow: 0px 1px 1px #292929;
+	transition: all .1s ease-in-out;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+}
+.search_button:active {
+	
+
+	background: #DDD;
+	background: -webkit-gradient(linear, left top, left bottom, from(#EDEDED), to(#C4C4C4));
+	background: -moz-linear-gradient(top, #EDEDED, #C4C4C4);
+	border: 1px solid #ACACAC;
+	border-top-color: #BDBDBD;
+	border-bottom-color: #949494;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,1);
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,1);	
+		transition: all .1s ease-in-out;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+}
+
+
+#accessory {
+position:relative;
+	min-height:30px;
+	width:400px;
+	padding:10px;
+		
+}
+
+    </style>
+  </head>
+  <body>
+		<div id="{{mojit_view_id}}" class="mojit">	
+		<div id="accessory">
+			<h3> For Android </h3>
+			<ul class="search_ul_class">	
+				<li><input type="text" name="zipcode" id="search_box" class="search_box_class" /></li>
+				<li class='search_button'>search</li>
+				
+			</ul>
+		</div>
+		
+		{{#result}}
+			{{#channel}}
+				{{#image}}
+					<img src="{{url}}" alt="no Y! for you"/>
+				{{/image}}
+				<h1><u>{{!description}}:{{zipcode}}</u></h1>
+				{{#item}}
+					{{!html}}{{description}}
+					{{#condition}}
+						<h2>Todays temperature: <b><h3 style='color:#555;'>{{temp}} F </h3></b></h2>
+					{{/condition}}
+					{{#noerror}}<h3><u>Forecast:</u></h3>{{/noerror}}
+					{{#forecast}} 
+						<h2 style='color:#666;margin:0px;'>{{date}} :</h2> <h2 style='color:#555;margin:0px;'> {{text}} </h2> </span>
+					{{/forecast}}
+				{{/item}}
+			{{/channel}}	
+			
+		{{/result}}	
+		</div>
+	</body>
+</html>

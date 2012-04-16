@@ -1,0 +1,48 @@
+<checkin id="{{mojit_view_id}}">
+	{{test}}
+	{{#friends}}
+
+	<ul>
+		<li class="panel">
+			<span class="head"> Friends checked in <span class="location">{{#location}}[{{name}}]{{/location}}</span> </span>
+			<div id="bookmarked-friends-scrollable-container">
+				<ul> 
+					{{#fl}}
+					<li>
+						<div class="image"><img src="{{imageurl}}"/>
+							<div class="caption">{{name}}</div>
+							{{#current_location}}<div class="caption"> {{city}}</div>
+							<!--<div class="caption"> {{state}}</div>{{/current_location}}-->
+						</div>
+					</li>
+					{{/fl}}					
+				</ul>
+			</div>
+		<li>
+	</ul>
+	{{/friends}}
+
+	{{#noaccesstoken}}
+	<ul>
+		<li class="panel">
+
+			<ul class="login-ul">
+					<li><a class="login-link"href="{{reloadurl}}">Login</a></li>
+			</ul>
+			
+		</li>
+	</ul>
+	{{/noaccesstoken}}
+
+	{{err}}
+
+	{{#onload}}
+	<ul>
+		<li class="panel">
+		<span><i class="icon-facebook-sign"></i> Facebook Friends Checked-in <img src='{{url}}' height=20 /></span>
+		</li>
+	</ul>					
+	{{/onload}}
+
+
+</checkin>

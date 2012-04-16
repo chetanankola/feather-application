@@ -1,0 +1,15 @@
+<facebook id="{{mojit_view_id}}">
+	{{#data}}
+		{{first_name}}
+		{{#hometown}}
+			{{name}}
+		{{/hometown}}
+	{{/data}}
+
+	{{#login}}
+		<a href='{{link}}'>Facebook client side login</a>
+	{{/login}}
+
+	{{err}}
+	{{msg}}
+</facebook>

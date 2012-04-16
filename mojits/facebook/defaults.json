@@ -1,0 +1,22 @@
+[{
+    "settings": ["master"],
+    "config": {
+        "Appdomain":"http://user-murphys.trunk.development.manhattan.bf1.yahoo.com", 
+        "Appid":"",
+        "Appsecret":"",
+        "fbdialoghost":"https//www.facebook.com/dialog/oauth",
+        "fbauthhost" : "https://graph.facebook.com/oauth/access_token"
+    }
+},
+
+
+{
+    "settings": ["environment:dev"],
+    "config": {
+        "Appdomain":"http://localhost:8001",
+        "Appid":"194463660672540",
+        "Appsecret":"90b12cbaac95eac6c52a5c64576d15bf",
+        "fbdialoghost":"https//www.facebook.com/dialog/oauth",
+        "fbauthhost" : "https://graph.facebook.com/oauth/access_token"
+    }
+}]

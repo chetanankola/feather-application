@@ -1,0 +1,12 @@
+
+<div id="{{mojit_view_id}}" class="mojit">	
+		<div id="accessory">
+			<ul class="search_ul_class">	
+				<li id='back_button_id' class='clickable'><a href="/">Home</a></li>
+				<li><input id="search_box_id" placeholder="enter zip code" type="text" name="zipcode" id="search_box" class="search_box_class" /></li>
+				<li id="search_button_id" class='clickable'><a href="#search">search</a></li>
+			</ul>
+		</div>
+		<div id="zipcode" class="ziptext">zipcode:{{zipcode}}</div> 
+		<div id="ajaxify"> </div>
+</div>

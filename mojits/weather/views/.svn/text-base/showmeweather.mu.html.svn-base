@@ -1,0 +1,26 @@
+<div id="{{mojit_view_id}}" class="mojit">	
+		<div id="accessory">
+			<ul class="search_ul_class">	
+				<li id='back_button_id'   class='clickable'>  <a href="/">Home</a></li>
+				<li id="search_button_id" class='clickable'><a href="/weather">Randomize Zip code</a></li>
+			</ul>
+		</div>
+		{{#result}}
+			{{#channel}}
+				{{#image}}
+					<img src="{{url}}" alt="no Y! for you"/>
+				{{/image}}
+				<h1><u>{{description}}:{{zipcode}}</u></h1>
+				{{#item}}
+					{{!html}}{{!description}}
+					{{#condition}}
+						<h2>Todays temperature: <b><h3 style='color:#555;'>{{temp}} F </h3></b></h2>
+					{{/condition}}
+					{{#noerror}}<h3><u>Forecast:</u></h3>{{/noerror}}
+					{{#forecast}} 
+						<h2 style='color:#666;margin:0px;'>{{date}} :</h2> <h2 style='color:#555;margin:0px;'> {{text}} </h2> </span>
+					{{/forecast}}
+				{{/item}}
+			{{/channel}}	
+		{{/result}}	
+		</div>

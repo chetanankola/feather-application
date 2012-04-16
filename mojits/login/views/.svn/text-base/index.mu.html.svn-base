@@ -1,0 +1,21 @@
+<login id="{{mojit_view_id}}">
+	{{#Login}}
+		<div class="login-button"><a id='fblogin' href="{{url}}"> Facebook Login </a>
+		</div>
+	{{/Login}}
+
+	{{#success}}
+		<div class="user-login-status">
+
+			<p>	{{SuccessMsg}} </p>
+		</div>
+	{{/success}}
+
+	{{#error}}
+		<div class="user-login-status">
+			<p>{{ErrorMsg}}</p>
+		</div>
+	{{/error}}
+
+
+</login>

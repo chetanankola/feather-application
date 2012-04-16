@@ -1,0 +1,9 @@
+/* Global */
+
+/* Apply a natural box layout model to all elements */
+* {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
+html {background: url(images/goovepaper.png)}
+body {color: #333;}
+a {text-decoration: none; color: #722C84;}
+li {list-style-type: none;}
