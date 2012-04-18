@@ -11,7 +11,7 @@
 					overflow:hidden;height:30px; box-shadow: 0px 0px 9px 1px #ccc;}
 
 .user-login-status p{padding:8px 0;display:block;font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size: 1.2em;font-weight: bold;color: #999;}
-.login-button {	margin: 5px;text-align: center; border-radius: 5px; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); background-color: #5B74A8;border: 1px solid #29447E;border-radius: 5px;}
+.login-button {text-align: center; border-radius: 5px; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); background-color: #5B74A8;border: 1px solid #29447E;border-radius: 5px;}
 /*.login-button:active {background: #D9D9D9;	-webkit-transition: all .1s ease-in-out;}*/
 .login-button a {color: #fff;display: block; padding: 8px 0;font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size: 1.2em;font-weight: bold;color: #fff;}
 .login-button-on-click{ opacity:0.7;margin: 5px;text-align: center; border-radius: 5px;  border: 1px solid #fefefe; box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1); -webkit-transition: all .1s ease-in;}

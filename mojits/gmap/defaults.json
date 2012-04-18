@@ -1,0 +1,21 @@
+[
+	{
+	    "settings": ["master"],
+	    "config": {
+	        "lat": "-34.397",
+	        "lon": "150.644",
+	        "radius": "10",
+	        "debug" :true
+	    }
+	},
+
+	{
+	    "settings": ["environment:dev"],
+	    "config": {
+	        "lat": "-34.397",
+	        "lon": "150.644",
+	        "radius": "10",
+	        "debug" :true
+	    }
+	}
+]

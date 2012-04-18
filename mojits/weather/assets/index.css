@@ -1,21 +1,13 @@
-h1{  text-shadow: 0px 1px 0 white;font-size:1.5em;font-family: Arial, sans-serif;}
-h2 {text-shadow: 0px 1px 0 white;font-size:1.2em;font-family: Arial, sans-serif;}
-h3 {text-shadow: 0px 1px 0 white;font-size:0.9em;font-family: Arial, sans-serif;}
-h4{text-shadow: 0px 1px 0 white;font-size:0.7em;font-family: Arial, sans-serif;}
+#accessory { -webkit-border-radius:5px;background:#fefefe;min-height:30px;-webkit-box-shadow: 0px 0px 15px 1px #ccc;}
 
-
-#accessory {  -webkit-border-radius:5px;background:#fefefe;position:relative;min-height:30px;margin:5px;-webkit-box-shadow: 0px 0px 15px 1px #ccc;margin-top:10px;}
-#accessory header{-webkit-border-radius:0px;position:relative;margin:0px;font-size:1.2em;padding:8px; text-shadow: 0px 1px 0 white;color: #444;background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ededed)); }
 #accessory ul{margin: 3px; margin-top:8px;padding: 0px;/*background-color:#fff; */}
 #accessory ul li{position: relative; display: inline-block;  list-style: none;margin-right:0px;}
 #accessory div#zipcode{font-size:1.0em;color:#888;text-align:left; padding:6px;border-radius: 5px;}
-
-#ajaxify{border-bottom: 5px solid #ddd;padding: 2px;}
-#ajaxify p{text-shadow: 0px 1px 0 white;font-size:1.0em;font-family: Arial, sans-serif; color:#555; }
-
 #accessory a{font-size:1.3em;font-weight: bold;color: #999; display:block; border:1px solid #ccc;padding:6px;border-radius: 5px;  background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#d8d8d8));}
 #accessory a:active {background:#ccc;}
 #accessory input{  margin:0px;width:96%;border-radius:3px;height:37px;}
 
+#ajaxify{border-bottom: 5px solid #ddd;padding: 2px;}
+#ajaxify p{text-shadow: 0px 1px 0 white;font-size:1.0em;font-family: Arial, sans-serif; color:#555; }
 
 

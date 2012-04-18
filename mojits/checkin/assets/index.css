@@ -1,3 +1,9 @@
+#checkin-container{-webkit-border-radius:5px;background:#fefefe;position:relative;min-height:30px;-webkit-box-shadow: 0 0 15px 1px #ccc;}
+
+#checkin-refresh{text-align:center;-webkit-border-radius:0px;position:relative;margin:0px;}
+#checkin-refresh a{display:block;cursor:pointer;border-radius:0px; text-shadow: 0 0 0 white;padding:8px;background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ededed));color:#444; }
+#checkin-refresh a:active{ background:#fff;}
+
 /*scroll view related*/
 #bookmarked-friends-scrollable-container	{white-space:nowrap; background:#ccc;background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#d8d8d8));} 
 #bookmarked-friends-scrollable-container ul {background:#fff;/*width:inherit;*/margin:0; padding:0;-webkit-box-shadow: 0px 0px 10px #000;}
@@ -5,9 +11,8 @@
 
 
 .panel {margin: 5px;margin-top:10px;-webkit-box-shadow: 0px 0px 5px 1px #ccc; padding: 5px; -webkit-border-radius: 5px;  position: relative; background: #FFF;}
-#checkin-container{ -webkit-border-radius:5px;background:#fefefe;position:relative;min-height:30px;margin:5px;-webkit-box-shadow: 0px 0px 15px 1px #ccc;margin-top:10px;}
 
-header{-webkit-border-radius:0px;position:relative;margin:0px;font-size:1.2em;padding:8px; text-shadow: 0px 1px 0 white;color: #444;background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ededed)); }
+
 /*captions and image box of the scrollview for facebook images*/
 .image{padding:2px;text-align:center;background: -webkit-gradient(linear, left top, left bottom, from(#FEFEFE), to(#E8E8E8));}
 .location { font-size:1.0em; }

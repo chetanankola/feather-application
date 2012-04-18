@@ -35,12 +35,11 @@ YUI.add('login', function(Y) {
             var access_token = ac.cookie.get("fb_access_token");
             var facebookcode = ac.params.getFromUrl('code') || null; //facebook auth code to get token
             ac.assets.addCss('./index.css', 'top');
-            this.redirect_uri = this.getRedirectUri(ac);
             if(access_token){
                 return self.onAccessTokenFound(ac,access_token);
             }
             if(facebookcode){
-                var redirect_uri = this.redirect_uri;
+                var redirect_uri = this.getRedirectUri(ac);
                 return this.getToken(ac,facebookcode,redirect_uri,function(err,access_token){
                     if(err){
                         return self.onAccessTokenNotFound(ac,err,facebookcode,redirect_uri);
@@ -85,7 +84,8 @@ YUI.add('login', function(Y) {
         },
         getRedirectUri: function(ac){
             //var uri = this.Appdomain+"/biz?id="+id+"&step=1";
-            var uri = this.Appdomain+"/";//+"/biz?step=1";
+            var uri = this.Appdomain+"/";
+            //var uri = this.Appdomain+ac.cookie.req.url;//+"/biz?step=1";
             return uri;
         },
         getToken:function(ac,code,redirect_uri,cb){

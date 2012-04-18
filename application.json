@@ -34,6 +34,12 @@
                                 },
                                 "weather": {
                                     "base" : "weather"
+                                },
+                                "gmap" : {
+                                    "base" : "gmap"
+                                },
+                                "twitter" : {
+                                    "base" : "twitter"
                                 }
                             }
                         }
@@ -63,6 +69,15 @@
             },
             "weather": {
                 "type" : "weather"
+            },
+            "gmap" : {
+                "type" : "gmap",
+                "config": {
+                    "deploy": true
+                }
+            },
+            "twitter" : {
+                "type" : "twitter"
             }             
         }
     }

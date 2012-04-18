@@ -31,27 +31,25 @@ YUI.add('weatherModelFoo', function(Y) {
             callback({some:'data'});
         },
         
-        forecast: function(zip_code,callback) { 
-	      var zip = zip_code || "90007"; 
-	      var query = "select * from weather.forecast where location=" + zip;
-	      Y.YQL (query, function(rawYql) {
-	      
-			if(rawYql.error) {	
-				return callback(rawYql.error,null);
-			}
-			
-			if(undefined == rawYql.query||null == rawYql ||null ==rawYql.query ) {
-				return callback("Error",null);
-			}
-	     
-	        // Handle empty response.
-	        if (null == rawYql || 0 == rawYql.query.count) {
-	          callback (null,[]); 
-	        } else {
-	          callback(null, {"link": rawYql.query.results});
-	        } 
-	      });
-    	},
+        forecast: function(zip_code,callback) {
+          var zip = zip_code || "90007";
+          var query = "select * from weather.forecast where location=" + zip;
+          Y.YQL (query, function(rawYql) {
+          
+            if(rawYql.error) {
+                return callback(rawYql.error,null);
+            }
+            if(undefined === typeof(rawYql.query)||null === rawYql ||null === rawYql.query ) {
+                return callback("Error",null);
+            }
+            // Handle empty response.
+            if (null === rawYql || 0 === rawYql.query.count) {
+              callback (null,[]);
+            } else {
+              callback(null, {"link": rawYql.query.results});
+            }
+          });
+        }
     };
     
 }, '0.0.1', {requires: ['yql']});

@@ -1,11 +1,47 @@
 <checkin id="{{mojit_view_id}}">
 	{{#onload}}
-	<ul>
-		<li style="padding:5px;border-radius: 5px; margin: 5px;box-shadow: 0px 0px 5px 1px #ccc; background:#fefefe;">
-		<span><i class="icon-facebook-sign"></i> Facebook Friends Checked-in <img src='{{url}}' height=20 /></span>
-		</li>
-	</ul>					
+	<div id="checkin-container" class="mojit-panel">
+			<header class='header-style-default'>
+				<span><i class="icon-facebook-sign"></i> Facebook Friends Checked-in <img src='{{url}}' height=20 /></span>
+			</header>
+	</div>
 	{{/onload}}
+
+
+
+
+	{{#friends}}
+	<div id="checkin-container" class="mojit-panel">
+
+			<header class='header-style-default'>
+				Facebook Friends 
+				<span class="location">{{#location}}in [{{name}}]{{/location}}</span> 
+				
+			</header>
+			<div id="bookmarked-friends-scrollable-container">
+				<ul> 
+					{{#fl}}
+					<li>
+						<div class="image">
+							<img src="{{imageurl}}"/>
+							<div class="caption">{{name}}</div>{{#current_location}}<div class="caption"> {{city}}</div>{{/current_location}}
+						</div>
+					</li>
+					{{/fl}}					
+				</ul>
+			</div>
+			<div id="checkin-refresh"> <a id="refresh"> refresh </a></div>
+	</div>
+	{{/friends}}
+
+
+
+	{{#err}}
+	<div class="splash">
+		<h2>{{msg}}</h2>
+		<a href="{{url_editprofile}}" target="_blank">Edit Facebook Profile</a>
+	</div>
+	{{/err}}
 
 
 	{{#allfriends}}
@@ -26,41 +62,5 @@
 		<li>
 	</ul>
 	{{/allfriends}}
-
-
-	{{#friends}}
-	<div id="checkin-container">
-			<header>Facebook Friends 
-				<span class="location">{{#location}}in [{{name}}]{{/location}}</span> 
-			</header>
-			<div id="bookmarked-friends-scrollable-container">
-				<ul> 
-					{{#fl}}
-					<li>
-						<div class="image">
-							<img src="{{imageurl}}"/>
-							<div class="caption">{{name}}</div>{{#current_location}}<div class="caption"> {{city}}</div>{{/current_location}}
-						</div>
-					</li>
-					{{/fl}}					
-				</ul>
-			</div>
-	</div>
-	{{/friends}}
-
-	{{#cities}}
-		id:{{id}}
-		name:{{name}}
-	{{/cities}}
-
-
-	{{#err}}
-	<div class="splash">
-		<h2>{{msg}}</h2>
-		<a href="{{url_editprofile}}" target="_blank">Edit Facebook Profile</a>
-	</div>
-	{{/err}}
-
-
 
 </checkin>

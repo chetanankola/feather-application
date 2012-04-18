@@ -11,6 +11,7 @@ YUI.add('checkin', function(Y,NAME) {
             this.Fb_permissions = "user_location,friends_location,publish_stream,user_status,friends_status";
         },
         index: function(ac) {
+            ac.assets.addCss('./index.css', 'top');
             if(!ac.params.getFromRoute('defer')){
                 var loaderImg1 = 'http://a.l.yimg.com/a/i/us/sch/mob/spinner-white-small.gif';
                 var loaderImg2 = 'http://a.l.yimg.com/a/i/us/sch/mob/spinner-1.0.0.gif';
@@ -19,7 +20,7 @@ YUI.add('checkin', function(Y,NAME) {
             var access_token = ac.cookie.get("fb_access_token") ||null;
             var model = ac.models.checkinModelFoo;
             var self = this;
-            ac.assets.addCss('./index.css', 'top');
+           
             if(!access_token) { //get the access token!! and then get Friends
                 return ac.done({});
             } else {
@@ -43,12 +44,14 @@ YUI.add('checkin', function(Y,NAME) {
                     Y.log(result);
                     var friends = result[0]; //result of first async function//{fl:[{uid:a1232},{},{}]}
                     var location = result[1].location; //result of 2nd asnc function
-                    Y.log('blahblu');
                     Y.log(location);
                     if(!location){
                         Y.log('could not find users location');
-                        return ac.done({err:{msg:'Need your location on facebook to get your local friends: Please update your location on facebook'}
-                                            ,url_editprofile:'http://facebook.com/me/info'});
+                        return ac.done(
+                        {
+                            err:{ msg:'Need your location on facebook to get your local friends: Please update your location on facebook'},
+                            url_editprofile:'http://facebook.com/me/info'
+                        });
                     }
                     Y.log('chanky');
                     Y.log(friends);

@@ -1,0 +1,27 @@
+<div id="{{mojit_view_id}}">
+
+	{{#success}}
+	<div id="twitter-container" class="mojit-panel">
+			<header class='header-style-default'>
+				Tweets from {{place}}
+			</header>
+
+			{{#results}}
+			<ul>
+				<li>
+					<span><a href="http://twitter.com/#!/{{from_user}}/status/{{id_str}}" target="_blank"><img src='{{profile_image_url}}' /> </span>
+					{{from_user_name}} : {{text}} 
+				</a>
+				</li>
+			</ul>
+			{{/results}}
+	</div>
+	{{/success}}
+
+	{{#err}}
+	<div id="twitter-container" class="mojit-panel">
+		<header class='header-style-default'>Tweets</header>
+		<h3> {{errmsg}}</h3
+	</div>
+	{{/err}}
+</div>

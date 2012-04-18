@@ -45,7 +45,12 @@ YUI.add('checkinBinderIndex', function(Y, NAME) {
                     axis: "x"
                 }
             });
-
+            node.one('#refresh').on('click',function(){
+                var args = {params: {route: {
+                    defer:true
+                }}};
+                self.mojitProxy.refreshView(args);
+            });
             //scrollview_bookmarked_friends.plug(Y.Plugin.ScrollViewPaginator, { selector: 'li', index: 2 });
             setTimeout(function(){
                 scrollview_bookmarked_friends.syncUI();
@@ -72,6 +77,8 @@ YUI.add('checkinBinderIndex', function(Y, NAME) {
                     defer:true
             }}};
             this.mojitProxy.refreshView(args);
+
+
 
 
             /*var scrollview_bookmarked_friends = new Y.ScrollView({

@@ -686,7 +686,7 @@ YUI.add('async', function(Y) {
     async.unmemoize = function (fn) {
       return function () {
         return (fn.unmemoized || fn).apply(null, arguments);
-      }
+      };
     };
 
     Y.async = async;
