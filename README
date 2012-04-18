@@ -19,3 +19,21 @@ run
 	mojito start --context "environment:dev"
 check your application running at http://localhost:8001/
 
+
+
+
+CHECKIN MOJIT AND LOGIN MOJIT:
+==============================
+These two mojit are facebook related mojits.
+Login mojit does authentication and puts the access_token in a cookie named "fb_access_token"
+All othe mojits including checkin mojit if need to pull data from facebook graph needs to use this access token.
+	================================
+	What about APP KEY for Facebook:
+	================================
+	As you would know that every facebook graph api needs an app key app secret etc? and its all tied to a host url.
+	Currently for this scaffold mojito app all that details is stored in defaults.json of login mojit ["mojits/login/defaults.json"] and is tied to localhost:8001
+
+	if you want to use this mojito on your own host url facebook related stuff will fail. so you need to get app key for ur url from facebook developer api and put ur information in the defaults.json.
+
+
+
