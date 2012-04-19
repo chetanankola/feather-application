@@ -37,3 +37,36 @@ All othe mojits including checkin mojit if need to pull data from facebook graph
 
 
 
+
+TWITTER MOJIT : how does this work
+===================================
+so go to the mojits/twitter/controller.server.js and to the index function
+thats where you start from.
+           if(!ac.params.getFromRoute('defer')){
+                var loaderImg1 = 'http://a.l.yimg.com/a/i/us/sch/mob/spinner-white-small.gif';
+                var loaderImg2 = 'http://a.l.yimg.com/a/i/us/sch/mob/spinner-1.0.0.gif';
+                return  ac.done({'onload':{url:loaderImg2}});
+            }
+So here I do my own custom lazy loading where the mojits execute later after the parent (main mojit) has finished execution
+here you check for any defer params passed to the controller by either mojits/twitter/binders/index.js or from url etc..
+
+if you see none then you just put a "loading gif" and return meaning no more code of twitter mojit runs.
+
+now lets go back to mojits/twitter/binders/index.js 
+here since controller.server.js a while ago since finished itself.. this gets loaded..
+here I do
+            var args = {params: {route: {
+                            coord:{lat:lat,lon:lon,radius:radius},defer:true
+                        }}};
+            this.mojitProxy.refreshView(args);
+so what this does is basically refresh the mojit (passing the code execution control to controller back again.)
+now the controller.. again
+
+
+this time   if(!ac.params.getFromRoute('defer')){ wont run.. instead runs the later part of the server code.. which is pulling the tweets..
+
+
+
+
+
+

@@ -1,3 +1,10 @@
 #twitter-container {-webkit-border-radius:5px;background:#fefefe;position:relative;min-height:30px;-webkit-box-shadow: 0 0 15px 1px #ccc;}
 #twitter-container ul {padding:4px;}
 #twitter-container ul li {padding:3px;background:#efefef;}
+#twitter-container ul li a {/*display:block;*/}
+
+
+
+#tweets-scrollable-container{overflow:hidden;} 
+
+

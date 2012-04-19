@@ -52,6 +52,9 @@ YUI.add('gmapBinderIndex', function(Y, NAME) {
             var currentLoc = {};
             var self = this;
             navigator.geolocation.getCurrentPosition(function(pos) {
+                    
+                    Y.Cookie.set('currentlat', pos.coords.latitude);
+                    Y.Cookie.set('currentlon',  pos.coords.longitude);
                     currentLoc.lat = pos.coords.latitude;
                     currentLoc.lon = pos.coords.longitude;
                     return self.renderMap(currentLoc);
@@ -91,7 +94,7 @@ YUI.add('gmapBinderIndex', function(Y, NAME) {
                     Y.fire('MAP_UPDATE', {}, {
                         lat: this.get('lat'),
                         lon: this.get('lon'),
-                        radius: 15
+                        radius: 2
                     });
                 });
             });

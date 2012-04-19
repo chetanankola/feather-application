@@ -1,20 +1,33 @@
 <div id="{{mojit_view_id}}">
 
+	{{#onload}}
+	<div id="twitter-container" class="mojit-panel">
+			<header class='header-style-default'>
+				Tweets loading ..<img src="{{url}}" height=20/>
+			</header>
+	</div>
+	{{/onload}}
+
+
 	{{#success}}
 	<div id="twitter-container" class="mojit-panel">
 			<header class='header-style-default'>
-				Tweets from {{place}}
+				Tweets from {{#coord}}({{lat}},{{lon}}) radius:{{radius}} {{/coord}}
 			</header>
 
-			{{#results}}
-			<ul>
-				<li>
-					<span><a href="http://twitter.com/#!/{{from_user}}/status/{{id_str}}" target="_blank"><img src='{{profile_image_url}}' /> </span>
-					{{from_user_name}} : {{text}} 
-				</a>
-				</li>
-			</ul>
-			{{/results}}
+			
+			<div id="tweets-scrollable-container">
+				{{#results}}
+				<ul>
+					<li>
+						<span><a href="http://twitter.com/#!/{{from_user}}/status/{{id_str}}" target="_blank"><img src='{{profile_image_url}}' /> 
+						{{from_user_name}} : {{text}} </span>
+						</a>
+					</li>
+				</ul>
+				{{/results}}
+			</div>
+			
 	</div>
 	{{/success}}
 

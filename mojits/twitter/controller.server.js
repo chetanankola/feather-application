@@ -30,34 +30,32 @@ YUI.add('twitter', function(Y, NAME) {
          */
         index: function(ac) {
             ac.assets.addCss('./index.css', 'top');
-            var lat = '37.4144411';
-            var lon = '-122.0240595';
+
+            if(!ac.params.getFromRoute('defer')){
+                var loaderImg1 = 'http://a.l.yimg.com/a/i/us/sch/mob/spinner-white-small.gif';
+                var loaderImg2 = 'http://a.l.yimg.com/a/i/us/sch/mob/spinner-1.0.0.gif';
+                return  ac.done({'onload':{url:loaderImg2}});
+            }
+            var lat = ac.cookie.get('currentlat') || '37.4144411';
+            var lon = ac.cookie.get('currentlon') ||'-122.0240595';
+            var radius = 2; //miles
+
+
+
             var coord = ac.params.getFromRoute('coord');
-            if(coord){
+            if(coord && coord.lat &&coord.lon && coord.radius){
                 lat = coord.lat;
                 lon = coord.lon;
+                radius = coord.radius;
             }
-/*
-{
-  "completed_in": 0.097,
-  "max_id": 192390629014257660,
-  "max_id_str": "192390629014257666",
-  "page": 1,
-  "query": "",
-  "refresh_url": "?since_id=192390629014257666&q=&geocode=22%2C22%2C1mi",
-  "results": [],
-  "results_per_page": 15,
-  "since_id": 0,
-  "since_id_str": "0"
-}
 
-*/
-            ac.models.twitterModelFoo.getTweets(lat,lon,function(err, data) {
+
+            ac.models.twitterModelFoo.getTweets(lat,lon,radius,function(err, data) {
                 if (err) {
                     ac.done({err:{errmsg:'fail'}});
                     return;
                 }
-                ac.done({success:data});
+                ac.done({success:data,coord:coord});
             });
         }
 

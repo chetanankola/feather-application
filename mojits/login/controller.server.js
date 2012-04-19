@@ -67,6 +67,7 @@ YUI.add('login', function(Y) {
                                         url_editprofile:'http://facebook.com/me/info'
                                     }
                                 });
+
         },
 
         setCookie: function(ac,access_token){

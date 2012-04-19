@@ -35,6 +35,13 @@ YUI.add('checkinBinderIndex', function(Y, NAME) {
         onRefreshView: function(node){
             this.node = node;
             var self = this;
+            node.one('#refresh').on('click',function(){
+                var args = {params: {route: {
+                    defer:true
+                }}};
+                self.mojitProxy.refreshView(args);
+            });
+
             var scrollview_bookmarked_friends = new Y.ScrollView({
                 srcNode:this.node.one('#bookmarked-friends-scrollable-container'),
                 deceleration: 0.9,
@@ -45,23 +52,12 @@ YUI.add('checkinBinderIndex', function(Y, NAME) {
                     axis: "x"
                 }
             });
-            node.one('#refresh').on('click',function(){
-                var args = {params: {route: {
-                    defer:true
-                }}};
-                self.mojitProxy.refreshView(args);
-            });
-            //scrollview_bookmarked_friends.plug(Y.Plugin.ScrollViewPaginator, { selector: 'li', index: 2 });
             setTimeout(function(){
                 scrollview_bookmarked_friends.syncUI();
             },1000);
             scrollview_bookmarked_friends.render();
-            
-
             Y.on('resize', function (e) {
                 scrollview_bookmarked_friends.syncUI();
-                //scrollview_bookmarked_friends.set('width', Y.config.win.innerWidth).syncUI();
-                //scrollview_bookmarked_friends.pages.snapToCurrent(0);
             });
         },
         /**
@@ -77,35 +73,6 @@ YUI.add('checkinBinderIndex', function(Y, NAME) {
                     defer:true
             }}};
             this.mojitProxy.refreshView(args);
-
-
-
-
-            /*var scrollview_bookmarked_friends = new Y.ScrollView({
-                srcNode:this.node.one('#bookmarked-friends-scrollable-container'),
-                deceleration: 0.9,
-                bounce:0.1,
-                flick: {
-                    minDistance:10,
-                    minVelocity:0.1,
-                    axis: "x"
-                }
-
-            });
-
-            //scrollview_bookmarked_friends.plug(Y.Plugin.ScrollViewPaginator, { selector: 'li', index: 2 });
-
-            setTimeout(function(){
-                scrollview_bookmarked_friends.syncUI();
-            },1000);
-            scrollview_bookmarked_friends.render();
-            
-
-            Y.on('resize', function (e) {
-                scrollview_bookmarked_friends.syncUI();
-                //scrollview_bookmarked_friends.set('width', Y.config.win.innerWidth).syncUI();
-                scrollview_bookmarked_friends.pages.snapToCurrent(0);
-            });*/
 
         }
 

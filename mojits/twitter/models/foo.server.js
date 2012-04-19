@@ -32,18 +32,16 @@ YUI.add('twitterModelFoo', function(Y, NAME) {
             callback(null, { some: 'data' });
         },
 
-        getTweets: function(lat,lon,callback){
-            var query= "http://search.twitter.com/search.json?geocode="+lat+","+lon+",1mi";
+        getTweets: function(lat,lon,radius,callback){
+            var query= "http://search.twitter.com/search.json?geocode="+lat+","+lon+","+radius+"mi";
             var self = this;
             function handler(err,res) {
                 if (err) {
                     return callback(err,null);
                 }
                 else if(res){
-                    var myinfo =  Y.JSON.parse(res.getBody());
-                    Y.log(myinfo);
-                    var send = myinfo;
-                    return callback(null,send);
+                    var tweets =  Y.JSON.parse(res.getBody());
+                    return callback(null,tweets);
                 } else {
                     return callback(null,null);
                 }
