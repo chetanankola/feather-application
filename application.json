@@ -40,6 +40,9 @@
                                 },
                                 "twitter" : {
                                     "base" : "twitter"
+                                },
+                                "geocode" : {
+                                    "base" : "geocode"
                                 }
                             }
                         }
@@ -78,7 +81,10 @@
             },
             "twitter" : {
                 "type" : "twitter"
-            }             
+            },
+            "geocode" : {
+                "type" : "geocode"
+            }              
         }
     }
 ]
