@@ -4,8 +4,12 @@
 <div id="{{mojit_view_id}}">
 
 	<div id='map-container' class="mojit-panel">
+		<div style="-webkit-box-flex: 1; display: block; padding:2px;">
+			<input id="address" value="702 1st avenue sunnyvale" placeholder="search for address on map" type="text" name="address" style="margin:5px; width:70%;height:50px;" class="address" />
+			<a id='address-search' href="#" style='text-align:center;width:20%;display:inline-block;border:1px solid #ccc;padding:10px;'>search</a>
+		</div>
+	
 		<div id="map"></div>
-		<div id="map_canvas"></div>
 	</div>
 	{{#debug}}<div id="latlon" class="mojit-panel debug-console-red ">lat/lon of map-center:</div>{{/debug}}
 </div>

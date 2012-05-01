@@ -2,12 +2,12 @@
  * Copyright (c) 2012 Yahoo! Inc. All rights reserved.
  */
 /*jslint anon:true, sloppy:true, nomen:true*/
-YUI.add('main', function(Y, NAME) {
+YUI.add('instagram', function(Y, NAME) {
 
 /**
- * The main module.
+ * The instagram module.
  *
- * @module main
+ * @module instagram
  */
 
     /**
@@ -17,8 +17,6 @@ YUI.add('main', function(Y, NAME) {
      * @constructor
      */
     Y.mojito.controllers[NAME] = {
-
-
 
         init: function(config) {
             this.config = config;
@@ -31,12 +29,19 @@ YUI.add('main', function(Y, NAME) {
          *        to the Mojito API.
          */
         index: function(ac) {
-
-
-            ac.assets.addCss('./index.css'); //this is the css of the main htmlframemojit
-            ac.composite.done({template: {}});
+            ac.models.instagramModelFoo.getData(function(err, data) {
+                if (err) {
+                    ac.error(err);
+                    return;
+                }
+                ac.assets.addCss('./index.css');
+                ac.done({
+                    status: 'Mojito is working.',
+                    data: data
+                });
+            });
         }
 
     };
 
-}, '0.0.1', {requires: ['mojito']});
+}, '0.0.1', {requires: ['mojito', 'instagramModelFoo']});

@@ -35,12 +35,17 @@ YUI.add('checkinBinderIndex', function(Y, NAME) {
         onRefreshView: function(node){
             this.node = node;
             var self = this;
-            node.one('#refresh').on('click',function(){
-                var args = {params: {route: {
-                    defer:true
-                }}};
-                self.mojitProxy.refreshView(args);
-            });
+            var refresh = node.one('#refresh');
+            if(refresh){
+                refresh.on('click',function(){
+                    self.node.one('#checkin-container').set("innerHTML","<header class='header-style-default'><span><i class='icon-facebook-sign'></i> Facebook Friends Checked-in <img src='http://a.l.yimg.com/a/i/us/sch/mob/spinner-1.0.0.gif' height=20 /></span></header><div style='display:block;height:80px;'> </div>");
+                    var args = {params: {route: {
+                        defer:true
+                    }}};
+
+                    self.mojitProxy.refreshView(args);
+                });
+            }
 
             var scrollview_bookmarked_friends = new Y.ScrollView({
                 srcNode:this.node.one('#bookmarked-friends-scrollable-container'),

@@ -2,18 +2,18 @@
  * Copyright (c) 2012 Yahoo! Inc. All rights reserved.
  */
 /*jslint anon:true, sloppy:true, nomen:true*/
-YUI.add('mainBinderIndex', function(Y, NAME) {
+YUI.add('geocodeBinderIndex', function(Y, NAME) {
 
 /**
- * The mainBinderIndex module.
+ * The geocodeBinderIndex module.
  *
- * @module mainBinderIndex
+ * @module geocodeBinderIndex
  */
 
     /**
-     * Constructor for the mainBinderIndex class.
+     * Constructor for the geocodeBinderIndex class.
      *
-     * @class mainBinderIndex
+     * @class geocodeBinderIndex
      * @constructor
      */
     Y.namespace('mojito.binders')[NAME] = {
@@ -35,8 +35,9 @@ YUI.add('mainBinderIndex', function(Y, NAME) {
         bind: function(node) {
             var me = this;
             this.node = node;
+
         }
 
     };
 
-}, '0.0.1', {requires: ['event-mouseenter', 'mojito-client']});
+}, '0.0.1', {requires: ['mojito-client']});

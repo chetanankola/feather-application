@@ -75,8 +75,7 @@ YUI.add('checkin', function(Y,NAME) {
                 if(localfriends){
                     return ac.done({friends:localfriends,location:location});
                 } else{
-                    return ac.done({err:{msg:'No friends found for the location specified'}
-                                    ,url_editprofile:'http://facebook.com/me/info'});
+                    return ac.done({err:{msg:'No friends found for the location specified'},url_editprofile:'http://facebook.com/me/info'});
                 }
         },
 
@@ -108,7 +107,7 @@ YUI.add('checkin', function(Y,NAME) {
             }else {
                 return null;
             }
-        },
+        }
     };
 
 }, '0.0.1', {requires: ['mojito','mojito-rest-lib','json-parse','async']});

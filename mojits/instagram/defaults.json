@@ -1,0 +1,12 @@
+[{
+    "settings": ["master"],
+    "config": {
+    }
+},
+
+
+{
+    "settings": ["environment:dev"],
+    "config": {
+    }
+}]

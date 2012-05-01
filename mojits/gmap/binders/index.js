@@ -59,7 +59,6 @@ YUI.add('gmapBinderIndex', function(Y, NAME) {
                     currentLoc.lon = pos.coords.longitude;
                     return self.renderMap(currentLoc);
             },function(err){
-                  //alert('error');
                   return self.renderMap({});
             });
 
@@ -73,31 +72,107 @@ YUI.add('gmapBinderIndex', function(Y, NAME) {
             var lon = currentLoc.lon || this.defaultpos.lon;
             //alert(currentLoc.lat);
             Y.use('ymaps', function(Y) {
-                Y.YMaps.init({appid: 'scaffold-map-6132'});
+                Y.YMaps.init({appid: 'scaffold-map-6131'});
+                
 
-                self.map = new Y.YMaps.Map({
-                    boundingBox: Y.one('#map'),
-                    center: new Y.YMaps.GeoLocation({
-                        lat: lat,
-                        lon: lon
-                    }),
-                    controls: true
+
+                self.geoloc = new Y.YMaps.GeoLocation({lat: lat,lon: lon});
+                self.map = new Y.YMaps.Map({boundingBox: Y.one('#map'),center: self.geoloc,controls: true});
+                self.mapmark = new Y.YMaps.Marker({geoLocation: self.geoloc,label: 'Tweet',hoverOverMarkerContent: '<p>blahbliblu</p>',
+                    detailViewContent: '<p>Come by and see us sometime.</p>'
                 });
+
+
                 self.map.render();
+                self.map.after("renderComplete", function(){self.map.draw(self.mapmark);});
+
                 if(self.mojitProxy.config.debug)self.node.one('#latlon').set('innerHTML',lat+','+lon);
+
+             
+
+                  // create geolocation object using an address
+                
+
+                
+                self.node.one('#address-search').on('click',function(){
+                  var address = self.node.one('#address').get('value') || '701 1st Avenue Sunnyvale';
+                  myGeo = new Y.YMaps.GeoLocation({
+                      query: address
+                  });
+                  var _lat =[];
+                  var _lon=[];
+                  var parsedResponse;
+                  myGeo.on('geo_end',function(e){
+                      Y.log('geoSuccess()');
+                        parsedResponse = e.parsedLatLon;
+                        for(var i=0;i<parsedResponse.length;i++){
+                            _lat[i] = parsedResponse[i].lat;
+                            _lon[i] = parsedResponse[i].lon;
+                        }
+                      if(parsedResponse.length!==0){
+                        alert(_lat[0]+','+_lon[0]);
+                        Y.fire('MAP_UPDATE', {}, {
+                          lat: _lat[0],
+                          lon: _lon[0],
+                          radius: 2
+                        });
+                        self.reRenderMap(_lat[0],_lon[0],self);
+                        //self.updateMark(_lat[0],_lon[0],self);
+                        //self.map._drawTiles();
+                        //var newgeoloc = new Y.YMaps.GeoLocation({lat: _lat[0],lon: _lon[0]});
+                        //self.map.setZoomAndCenter({boundingBox: Y.one('#map'),center: newgeoloc,controls: true});
+                        //self.map.render();
+                      }
+                  });
+                  myGeo.getGeo();
+                });
+
+  
+
 
 
                 self.map.on('endDrag', function() {
                    //for debugging purpose !!
-                    if(self.mojitProxy.config.debug)self.node.one('#latlon').set('innerHTML',this.get('lat')+','+this.get('lon'));
-                    
+                    var that = this;
+
+                    var lat = this.get('lat');
+                    var lon = this.get('lon');
+
                     Y.fire('MAP_UPDATE', {}, {
-                        lat: this.get('lat'),
-                        lon: this.get('lon'),
+                        lat: lat,
+                        lon: lon,
                         radius: 2
                     });
+                    self.updateMark(lat,lon,self);
                 });
             });
+        },
+        reRenderMap: function(lat,lon,self){
+
+                //self.geoloc = new Y.YMaps.GeoLocation({lat: lat,lon: lon});
+                //self.map = new Y.YMaps.Map({boundingBox: Y.one('#map'),center: self.geoloc,controls: true});
+                self.mapmark = new Y.YMaps.Marker({geoLocation: self.geoloc,label: 'Tweet',hoverOverMarkerContent: '<p>blahbliblu</p>',
+                    detailViewContent: '<p>Come by and see us sometime.</p>'
+                });
+                //self.map.render();
+                //self.map.after("renderComplete", function(){self.map.draw(self.mapmark);});
+                self.updateMap(_lat[0],_lon[0],self);
+        },
+        updateMark: function(lat,lon,self) {
+            if(self.mapmark) {
+              self.map.remove(self.mapmark);
+            }
+            self.geoloc = new Y.YMaps.GeoLocation({
+                  lat: lat,
+                  lon: lon
+              });
+             self.mapmark = new Y.YMaps.Marker({
+                  geoLocation: self.geoloc,
+                  label: 'Tweet',hoverOverMarkerContent: '<p>blahbliblu</p>',
+                    detailViewContent: '<p>Come by and see us sometime.</p>'
+            });
+            self.map.draw(self.mapmark);
+            if(self.mojitProxy.config.debug)self.node.one('#latlon').set('innerHTML',lat+','+lon);
         }
     };
 

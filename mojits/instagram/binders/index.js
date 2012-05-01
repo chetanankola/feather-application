@@ -2,18 +2,18 @@
  * Copyright (c) 2012 Yahoo! Inc. All rights reserved.
  */
 /*jslint anon:true, sloppy:true, nomen:true*/
-YUI.add('mainBinderIndex', function(Y, NAME) {
+YUI.add('instagramBinderIndex', function(Y, NAME) {
 
 /**
- * The mainBinderIndex module.
+ * The instagramBinderIndex module.
  *
- * @module mainBinderIndex
+ * @module instagramBinderIndex
  */
 
     /**
-     * Constructor for the mainBinderIndex class.
+     * Constructor for the instagramBinderIndex class.
      *
-     * @class mainBinderIndex
+     * @class instagramBinderIndex
      * @constructor
      */
     Y.namespace('mojito.binders')[NAME] = {
@@ -35,6 +35,14 @@ YUI.add('mainBinderIndex', function(Y, NAME) {
         bind: function(node) {
             var me = this;
             this.node = node;
+            node.all('dt').on('mouseenter', function(evt) {
+                var dd = '#dd_' + evt.target.get('text');
+                me.node.one(dd).addClass('sel');
+            });
+            node.all('dt').on('mouseleave', function(evt) {
+                var dd = '#dd_' + evt.target.get('text');
+                me.node.one(dd).removeClass('sel');
+            });
         }
 
     };
